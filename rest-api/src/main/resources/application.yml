@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://localhost:3306/user_management_db"
+    username: "admin"
+    password: "1111"
+  liquibase:
+    enabled: true
+    change-log: db/changelog/db.changelog-master.yaml
+---
+server:
+  port: 8080
+---
