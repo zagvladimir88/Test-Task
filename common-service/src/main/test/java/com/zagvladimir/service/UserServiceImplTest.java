@@ -8,7 +8,6 @@ import com.zagvladimir.domain.User;
 import com.zagvladimir.dto.UserCreateRequest;
 import com.zagvladimir.dto.UserResponse;
 import com.zagvladimir.mappers.UserMapper;
-import com.zagvladimir.service.UserServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
