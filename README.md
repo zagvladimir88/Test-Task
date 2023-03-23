@@ -53,14 +53,14 @@ response example / пример ответа:
 {
     "content": [
         {
-            "fullname": "Ivanov Ivan Ivanovich",
-            "email": "ivanov@mail.ru",
-            "role": "ROLE_ADMINISTRATOR"
+            "fullname": "Simpson Bart Jojo",
+            "email": "bsimpson@springfield.com",
+            "role": "ROLE_SALE_USER"
         },
         {
-            "fullname": "Smirnova Elena Alexandrovna",
-            "email": "smirnova@mail.ru",
-            "role": "ROLE_SECURE_API_USER"
+            "fullname": "Cartman Eric Jack",
+            "email": "ecartman@southpark.com",
+            "role": "ROLE_ADMINISTRATOR"
         }
     ],
     "pageable": {
@@ -70,14 +70,15 @@ response example / пример ответа:
             "unsorted": false
         },
         "offset": 0,
-        "pageNumber": 0,
         "pageSize": 10,
-        "unpaged": false,
-        "paged": true
+        "pageNumber": 0,
+        "paged": true,
+        "unpaged": false
     },
     "last": true,
     "totalPages": 1,
     "totalElements": 10,
+    "number": 0,
     "size": 10,
     "sort": {
         "empty": false,
@@ -86,7 +87,6 @@ response example / пример ответа:
     },
     "first": true,
     "numberOfElements": 10,
-    "number": 0,
     "empty": false
 }
 ```
