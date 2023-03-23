@@ -95,3 +95,16 @@ This project is a test task for IT-BOOTCAMP Backend Java Developer.
 
 ---
 Этот проект является тестовым заданием для IT-BOOTCAMP Backend Java Developer.
+
+:white_check_mark: Многомодульность three maven module.    
+:white_check_mark: Система контроля версий - Git.    
+:white_check_mark: Технологии: java11 , log4j2, Spring Boot 2, MySQL 8.    
+:white_check_mark: Использование Docker и Docker Compose для контейнеризации проекта.    
+:white_check_mark: Unit и Integration тесты на приложение.  (testcontainers, Junit)    
+:white_check_mark: Liquibase для миграции базы данных.    
+:white_check_mark: Формат: JSON.    
+:white_check_mark: Архитектурный стиль: REST.    
+:white_check_mark: Endpoint для добавление пользователя.    
+:white_check_mark: Endpoint для получения всех пользователей.    
+:white_check_mark: Обработка ошибок.    
+:white_check_mark: Постраничный вывод записей по 10 для получения пользователя.    
