@@ -1,7 +1,7 @@
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: "jdbc:mysql://${db:localhost}:3306/user_management_db"
+    url: "jdbc:mysql://db:3306/user_management_db"
     username: "admin"
     password: "1111"
   liquibase:
