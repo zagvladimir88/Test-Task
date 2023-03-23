@@ -30,7 +30,7 @@ English character validation, email validity check, sorting, and pagination.
 * `/api/users` - POST endpoint for adding a user with fields for Surname, Firstname, Patronymic, Email, and Role.
 
 ---
-* `/api/users` - POST endpoint для добавления пользователя с полями для Фамилия, Имя, Отчество, Электронная почта и Роль.
+* `/api/users` - POST endpoint для добавления пользователя с полями surname, firstname, patronymic, email и role.
 
 Example json for a request to create a user / Пример json для запроса на создание пользователя :
 ``` json
@@ -48,48 +48,6 @@ Example json for a request to create a user / Пример json для запр�
 * `/api/users` — конечная точка GET, чтобы получить всех пользователей с полями fullname, email и role. Для пагинации используйте `?page=0&size=10`. 
 Записи сортируются в алфавитном порядке по электронной почте и разбиваются на страницы для отображения 10 записей. 
 
-response example / пример ответа:
-```
-{
-    "content": [
-        {
-            "fullname": "Simpson Bart Jojo",
-            "email": "bsimpson@springfield.com",
-            "role": "ROLE_SALE_USER"
-        },
-        {
-            "fullname": "Cartman Eric Jack",
-            "email": "ecartman@southpark.com",
-            "role": "ROLE_ADMINISTRATOR"
-        }
-    ],
-    "pageable": {
-        "sort": {
-            "empty": false,
-            "sorted": true,
-            "unsorted": false
-        },
-        "offset": 0,
-        "pageSize": 10,
-        "pageNumber": 0,
-        "paged": true,
-        "unpaged": false
-    },
-    "last": true,
-    "totalPages": 1,
-    "totalElements": 10,
-    "number": 0,
-    "size": 10,
-    "sort": {
-        "empty": false,
-        "sorted": true,
-        "unsorted": false
-    },
-    "first": true,
-    "numberOfElements": 10,
-    "empty": false
-}
-```
 
 # Running the Application
 To run the application, follow these steps:
