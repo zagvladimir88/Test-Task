@@ -37,9 +37,6 @@ public class UserServiceImpl implements UserService {
         if (userRole.isPresent()) {
             createUser.setRole(userRole.get());
             log.info("Role sets successful {}", userRole.get().getName());
-        } else {
-            log.error("Role  {} not found", request.getRole().toString());
-            throw new EntityNotFoundException("Role " + request.getRole().toString() + " not found");
         }
 
         User createdUser = userDAO.save(createUser);
