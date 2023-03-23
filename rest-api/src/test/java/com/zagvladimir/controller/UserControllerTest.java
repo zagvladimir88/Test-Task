@@ -31,7 +31,7 @@ class UserControllerTest extends BaseIntegrationTest {
                 .perform(MockMvcRequestBuilders.get("/api/users/").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$['pageable']['paged']").value("true"))
-                .andExpect(jsonPath("$.content[0].fullname").value("Ivanov Ivan Ivanovich"));
+                .andExpect(jsonPath("$.content[0].fullname").value("Simpson Bart Jojo"));
     }
 
     @Test
@@ -46,7 +46,7 @@ class UserControllerTest extends BaseIntegrationTest {
                         .content(objectMapper.writeValueAsString(map))
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.firstname").value("Test"))
+                .andExpect(jsonPath("$.firstname").value("Walter"))
                 .andExpect(jsonPath("$.role.name").value("ROLE_ADMINISTRATOR"));
 
     }

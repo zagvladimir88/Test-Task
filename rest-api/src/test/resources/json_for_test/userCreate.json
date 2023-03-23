@@ -1,7 +1,7 @@
 {
-  "surname": "Test",
-  "firstname": "Test",
-  "patronymic": "Test",
-  "email": "ITest@gmail.com",
+  "surname": "Sobchak",
+  "firstname": "Walter",
+  "patronymic": "Lebowski",
+  "email": "big.lebowski@gmail.com",
   "role": "ROLE_ADMINISTRATOR"
 }

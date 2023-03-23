@@ -43,17 +43,17 @@ class UserServiceImplTest {
     @Test
     void testCreateWithValidRequest() {
         UserCreateRequest request = new UserCreateRequest();
-        request.setFirstname("TestSurName");
-        request.setSurname("TestFirstName");
-        request.setPatronymic("TestPatronymic");
-        request.setEmail("test@example.com");
+        request.setFirstname("Tyler");
+        request.setSurname("Durden");
+        request.setPatronymic("Balthazar");
+        request.setEmail("anon.fight.club@gmail.com");
         request.setRole(SystemRoles.ROLE_ADMINISTRATOR);
 
         User mappedUser = new User();
-        mappedUser.setSurname("TestSurName");
-        mappedUser.setFirstname("TestFirstName");
-        mappedUser.setPatronymic("TestPatronymic");
-        mappedUser.setEmail("test@example.com");
+        mappedUser.setFirstname("Tyler");
+        mappedUser.setSurname("Durden");
+        mappedUser.setPatronymic("Balthazar");
+        mappedUser.setEmail("anon.fight.club@gmail.com");
         mappedUser.setRole(new Role());
 
         when(userMapper.convertCreateRequest(request)).thenReturn(mappedUser);
@@ -61,16 +61,16 @@ class UserServiceImplTest {
         when(userDAO.save(any())).thenReturn(mappedUser);
 
         User createdUser = userService.create(request);
-        assertEquals("TestFirstName", createdUser.getFirstname());
-        assertEquals("test@example.com", createdUser.getEmail());
+        assertEquals("Tyler", createdUser.getFirstname());
+        assertEquals("anon.fight.club@gmail.com", createdUser.getEmail());
         Assertions.assertNotNull(createdUser.getRole());
     }
 
     @Test
     void testFindAllReturnsListOfUsers() {
         List<User> userList = Arrays.asList(
-                new User(1L, "Ivanov", "Ivan", "Ivanovich", "vanya@example.com", new Role()),
-                new User(2L, "Petrov", "Petr", "Petrovich", "vasya@example.com", new Role())
+                new User(1L, "Durden", "Tyler", "Balthazar", "anon.fight.club@gmail.com", new Role()),
+                new User(2L, "Edward", "Norton", "Narrator", "the.narrator@hotmail.com", new Role())
         );
         Page<User> userPage = new PageImpl<>(userList);
 
@@ -85,8 +85,8 @@ class UserServiceImplTest {
         Page<UserResponse> result = userService.findAll(pageable);
 
         assertEquals(2, result.getContent().size());
-        assertEquals("vanya@example.com", result.getContent().get(0).getEmail());
-        assertEquals("Petrov Petr Petrovich", result.getContent().get(1).getFullname());
+        assertEquals("anon.fight.club@gmail.com", result.getContent().get(0).getEmail());
+        assertEquals("Edward Norton Narrator", result.getContent().get(1).getFullname());
         verify(userDAO, times(1)).findAll(any(Pageable.class));
         verify(userMapper, times(2)).toUserResponse(any(User.class));
     }
