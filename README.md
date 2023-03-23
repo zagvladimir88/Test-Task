@@ -91,15 +91,41 @@ response example / пример ответа:
 }
 ```
 
-# Usage
-To run the application, clone the project from the GitHub repository and import it into an IDE.
-Set up the MySQL. To start the database in Docker, go to the Docker folder and run Docker Compose. The SQL database with all the necessary parameters will be started in Docker. Alternatively, you can Set up the MySQL manualy database and update the application.properties file with the necessary database information.
-Run the application as a Spring Boot application, and you should be able to access the endpoints.
+# Running the Application
+To run the application, follow these steps:
+
+1. Make sure you have [Maven](https://maven.apache.org/) and [Docker Compose](https://docs.docker.com/compose/) installed on your system.
+2. Open a terminal and navigate to the root directory of the project.
+3. Run the following command to build the application using Maven:
+
+```
+mvn clean install
+```
+4. Once the build is complete, run the following command to start the application using Docker Compose:
+
+```
+docker-compose up
+```
+This will start all the required services, including the MySQL database and the application itself.
+You can now access the application by opening a web browser and navigating to http://localhost:8080.
 
 ---
-Чтобы запустить приложение, клонируйте проект из репозитория GitHub и импортируйте его в IDE.
-Настройте MySQL. Чтобы запустить базу данных в Docker, перейдите в папку Docker и запустите файл Docker Compose. База данных SQL со всеми необходимыми параметрами будет запущена в Docker. Кроме того, вы можете настроить базу данных MySQL вручную и обновить файл application.yml необходимой информацией о базе данных.
-Запустите приложение как приложение Spring Boot, и вы сможете получить доступ к конечным точкам.
+Чтобы запустить приложение, выполните следующие действия:
+
+1. Убедитесь, что в вашей системе установлены [Maven](https://maven.apache.org/) и [Docker Compose](https://docs.docker.com/compose/).
+2. Откройте терминал и перейдите в корневой каталог проекта.
+3. Запустите следующую команду, чтобы собрать приложение с помощью Maven:
+
+```
+mvn clean install
+```
+4. После завершения сборки выполните следующую команду, чтобы запустить приложение с помощью Docker Compose:
+
+```
+docker-compose up
+```
+Это запустит все необходимые службы, включая базу данных MySQL и само приложение.
+Теперь вы можете получить доступ к приложению, открыв веб-браузер и перейдя по адресу http://localhost:8080.
 
 # Testing
 Unit and integration tests have been included using JUnit and testcontainers to raise the test base in Docker. `Docker must be running` to pass integration tests
