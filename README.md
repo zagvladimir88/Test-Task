@@ -30,7 +30,7 @@ English character validation, email validity check, sorting, and pagination.
 * `/api/users` - POST endpoint for adding a user with fields for Surname, Firstname, Patronymic, Email, and Role.
 
 ---
-* `/api/users` - POST endpoint для добавления пользователя с полями для Фамилия, Имя, Отчество, Электронная почта и Роль.
+* `/api/users` - POST endpoint для добавления пользователя с полями surname, firstname, patronymic, email и role.
 
 Example json for a request to create a user / Пример json для запроса на создание пользователя :
 ``` json
@@ -48,58 +48,42 @@ Example json for a request to create a user / Пример json для запр�
 * `/api/users` — конечная точка GET, чтобы получить всех пользователей с полями fullname, email и role. Для пагинации используйте `?page=0&size=10`. 
 Записи сортируются в алфавитном порядке по электронной почте и разбиваются на страницы для отображения 10 записей. 
 
-response example / пример ответа:
-```
-{
-    "content": [
-        {
-            "fullname": "Simpson Bart Jojo",
-            "email": "bsimpson@springfield.com",
-            "role": "ROLE_SALE_USER"
-        },
-        {
-            "fullname": "Cartman Eric Jack",
-            "email": "ecartman@southpark.com",
-            "role": "ROLE_ADMINISTRATOR"
-        }
-    ],
-    "pageable": {
-        "sort": {
-            "empty": false,
-            "sorted": true,
-            "unsorted": false
-        },
-        "offset": 0,
-        "pageSize": 10,
-        "pageNumber": 0,
-        "paged": true,
-        "unpaged": false
-    },
-    "last": true,
-    "totalPages": 1,
-    "totalElements": 10,
-    "number": 0,
-    "size": 10,
-    "sort": {
-        "empty": false,
-        "sorted": true,
-        "unsorted": false
-    },
-    "first": true,
-    "numberOfElements": 10,
-    "empty": false
-}
-```
 
-# Usage
-To run the application, clone the project from the GitHub repository and import it into an IDE.
-Set up the MySQL. To start the database in Docker, go to the Docker folder and run Docker Compose. The SQL database with all the necessary parameters will be started in Docker. Alternatively, you can Set up the MySQL manualy database and update the application.properties file with the necessary database information.
-Run the application as a Spring Boot application, and you should be able to access the endpoints.
+# Running the Application
+To run the application, follow these steps:
+
+1. Make sure you have [Maven](https://maven.apache.org/) and [Docker Compose](https://docs.docker.com/compose/) installed on your system.
+2. Open a terminal and navigate to the root directory of the project.
+3. Run the following command to build the application using Maven:
+
+```
+mvn clean install
+```
+4. Once the build is complete, run the following command to start the application using Docker Compose:
+
+```
+docker-compose up
+```
+This will start all the required services, including the MySQL database and the application itself.
+You can now access the application by opening a web browser and navigating to http://localhost:8080.
 
 ---
-Чтобы запустить приложение, клонируйте проект из репозитория GitHub и импортируйте его в IDE.
-Настройте MySQL. Чтобы запустить базу данных в Docker, перейдите в папку Docker и запустите файл Docker Compose. База данных SQL со всеми необходимыми параметрами будет запущена в Docker. Кроме того, вы можете настроить базу данных MySQL вручную и обновить файл application.yml необходимой информацией о базе данных.
-Запустите приложение как приложение Spring Boot, и вы сможете получить доступ к конечным точкам.
+Чтобы запустить приложение, выполните следующие действия:
+
+1. Убедитесь, что в вашей системе установлены [Maven](https://maven.apache.org/) и [Docker Compose](https://docs.docker.com/compose/).
+2. Откройте терминал и перейдите в корневой каталог проекта.
+3. Запустите следующую команду, чтобы собрать приложение с помощью Maven:
+
+```
+mvn clean install
+```
+4. После завершения сборки выполните следующую команду, чтобы запустить приложение с помощью Docker Compose:
+
+```
+docker-compose up
+```
+Это запустит все необходимые службы, включая базу данных MySQL и само приложение.
+Теперь вы можете получить доступ к приложению, открыв веб-браузер и перейдя по адресу http://localhost:8080.
 
 # Testing
 Unit and integration tests have been included using JUnit and testcontainers to raise the test base in Docker. `Docker must be running` to pass integration tests
@@ -111,3 +95,16 @@ This project is a test task for IT-BOOTCAMP Backend Java Developer.
 
 ---
 Этот проект является тестовым заданием для IT-BOOTCAMP Backend Java Developer.
+
+:white_check_mark: Многомодульность three maven module.    
+:white_check_mark: Система контроля версий - Git.    
+:white_check_mark: Технологии: java11 , log4j2, Spring Boot 2, MySQL 8.    
+:white_check_mark: Использование Docker и Docker Compose для контейнеризации проекта.    
+:white_check_mark: Unit и Integration тесты на приложение.  (testcontainers, Junit)    
+:white_check_mark: Liquibase для миграции базы данных.    
+:white_check_mark: Формат: JSON.    
+:white_check_mark: Архитектурный стиль: REST.    
+:white_check_mark: Endpoint для добавление пользователя.    
+:white_check_mark: Endpoint для получения всех пользователей.    
+:white_check_mark: Обработка ошибок.    
+:white_check_mark: Постраничный вывод записей по 10 для получения пользователя.    
