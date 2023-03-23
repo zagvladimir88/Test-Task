@@ -9,7 +9,7 @@ It includes endpoints for adding a user and getting all users, with features suc
 English character validation, email validity check, sorting, and pagination.
 
 ---
-Это многомодульный Maven проект. 
+Многомодульный Maven проект. 
 Это серверное Java-приложение, созданное с использованием Java 11, Spring Boot 2 и MySQL 8.
 Приложение использует архитектурный стиль REST и формат JSON для API. 
 Оно включает в себя конечные точки для добавления пользователя и получения всех пользователей с такими функциями, как обработка ошибок,
