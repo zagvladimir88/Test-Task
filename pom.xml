@@ -24,8 +24,9 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <snakeyaml.version>1.33</snakeyaml.version>
         <lombok.version>1.18.26</lombok.version>
-        <log4j.version>2.11.2</log4j.version>
+        <log4j.version>2.20.0</log4j.version>
     </properties>
 
     <dependencies>
