@@ -26,6 +26,9 @@ public class UserController {
     @GetMapping
     public ResponseEntity<Object> findAllUsers(Pageable pageable) {
         Page<UserResponse> users = userService.findAll(pageable);
+        if(users.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 

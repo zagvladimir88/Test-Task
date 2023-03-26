@@ -5,21 +5,18 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Getter
 @Setter
 @ToString
 public class UserCreateRequest {
 
-    @Size(max = 40)
+    @Size(max = 40,min = 2)
     @Pattern(regexp = "^[a-zA-Z]*$")
     private String surname;
 
-    @Size(max = 20)
+    @Size(max = 20,min = 2)
     @Pattern(regexp = "^[a-zA-Z]*$")
     private String firstname;
 

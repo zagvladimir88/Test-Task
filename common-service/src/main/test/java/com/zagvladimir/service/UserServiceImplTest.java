@@ -67,6 +67,32 @@ class UserServiceImplTest {
     }
 
     @Test
+    void testCreateWithInvalidEmailRequest() {
+        UserCreateRequest request = new UserCreateRequest();
+        request.setFirstname("Tyler");
+        request.setSurname("Durden");
+        request.setPatronymic("Balthazar");
+        request.setEmail("anon.fight.club@gmail.com");
+        request.setRole(SystemRoles.ROLE_ADMINISTRATOR);
+
+        User mappedUser = new User();
+        mappedUser.setFirstname("Tyler");
+        mappedUser.setSurname("Durden");
+        mappedUser.setPatronymic("Balthazar");
+        mappedUser.setEmail("anon.fight.club@gmail.com");
+        mappedUser.setRole(new Role());
+
+        when(userMapper.convertCreateRequest(request)).thenReturn(mappedUser);
+        when(roleDAO.findRoleByName(request.getRole().toString())).thenReturn(Optional.of(new Role()));
+        when(userDAO.save(any())).thenReturn(mappedUser);
+
+        User createdUser = userService.create(request);
+        assertEquals("Tyler", createdUser.getFirstname());
+        assertEquals("anon.fight.club@gmail.com", createdUser.getEmail());
+        Assertions.assertNotNull(createdUser.getRole());
+    }
+
+    @Test
     void testFindAllReturnsListOfUsers() {
         List<User> userList = Arrays.asList(
                 new User(1L, "Durden", "Tyler", "Balthazar", "anon.fight.club@gmail.com", new Role()),
@@ -90,4 +116,30 @@ class UserServiceImplTest {
         verify(userDAO, times(1)).findAll(any(Pageable.class));
         verify(userMapper, times(2)).toUserResponse(any(User.class));
     }
+
+    @Test
+    void testFindAllReturnsEmptyList() {
+        List<User> userList = Arrays.asList(
+                new User(1L, "Durden", "Tyler", "Balthazar", "anon.fight.club@gmail.com", new Role()),
+                new User(2L, "Edward", "Norton", "Narrator", "the.narrator@hotmail.com", new Role())
+        );
+        Page<User> userPage = new PageImpl<>(userList);
+
+        when(userDAO.findAll(any(Pageable.class))).thenReturn(userPage);
+        when(userMapper.toUserResponse(any(User.class))).thenAnswer(
+                invocation -> {
+                    User user = invocation.getArgument(0);
+                    return new UserResponse(user.getSurname() + " " + user.getFirstname() + " " + user.getPatronymic(), user.getEmail(), user.getRole().getName());
+                });
+
+        Pageable pageable = PageRequest.of(0, 10);
+        Page<UserResponse> result = userService.findAll(pageable);
+
+        assertEquals(2, result.getContent().size());
+        assertEquals("anon.fight.club@gmail.com", result.getContent().get(0).getEmail());
+        assertEquals("Edward Norton Narrator", result.getContent().get(1).getFullname());
+        verify(userDAO, times(1)).findAll(any(Pageable.class));
+        verify(userMapper, times(2)).toUserResponse(any(User.class));
+    }
+
 }
