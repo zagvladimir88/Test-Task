@@ -12,7 +12,6 @@ English character validation, email validity check, sorting, and pagination.
 * Java 11
 * Spring Boot 2
 * MySQL 8
-* Spring AOP
 * Log4j2
 * Liquibase
 * JUnit
