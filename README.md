@@ -1,25 +1,17 @@
-# IT-Bootcamp-Java-Developer-Test-Task
+Test-Task
 
 # Project Description
 
-This is a multi-module Maven project with a three-level, three-module development architecture.
+This is a project with a three-level development architecture.
 It is a backend Java application built using Java 11, Spring Boot 2, and MySQL 8.
 The application uses REST architectural style and JSON format for the API.
 It includes endpoints for adding a user and getting all users, with features such as error handling,
 English character validation, email validity check, sorting, and pagination.
 
----
-Многомодульный Maven проект. 
-Это серверное Java-приложение, созданное с использованием Java 11, Spring Boot 2 и MySQL 8.
-Приложение использует архитектурный стиль REST и формат JSON для API. 
-Оно включает в себя конечные точки для добавления пользователя и получения всех пользователей с такими функциями, как обработка ошибок,
-проверка ввода(только латинские символы), валидация email адреса, сортировка и разбиение на страницы.
-
 # Technologies
 * Java 11
 * Spring Boot 2
 * MySQL 8
-* Spring AOP
 * Log4j2
 * Liquibase
 * JUnit
@@ -29,10 +21,7 @@ English character validation, email validity check, sorting, and pagination.
 # Endpoints
 * `/api/users` - POST endpoint for adding a user with fields for Surname, Firstname, Patronymic, Email, and Role.
 
----
-* `/api/users` - POST endpoint для добавления пользователя с полями surname, firstname, patronymic, email и role.
-
-Example json for a request to create a user / Пример json для запроса на создание пользователя :
+Example json for a request to create a user  :
 ``` json
 {
   "surname": "Sobchak",
@@ -44,10 +33,6 @@ Example json for a request to create a user / Пример json для запр�
 ```
 
 * `/api/users` - GET endpoint to get all users with fields for Full Name, Email, and Role. Use `?page=0&size=10` for pagination. Entries are sorted alphabetically by email and paginated to show 10 records.
----
-* `/api/users` — конечная точка GET, чтобы получить всех пользователей с полями fullname, email и role. Для пагинации используйте `?page=0&size=10`. 
-Записи сортируются в алфавитном порядке по электронной почте и разбиваются на страницы для отображения 10 записей. 
-
 
 # Running the Application
 To run the application, follow these steps:
@@ -67,44 +52,8 @@ docker-compose up
 This will start all the required services, including the MySQL database and the application itself.
 You can now access the application by opening a web browser and navigating to http://localhost:8080.
 
----
-Чтобы запустить приложение, выполните следующие действия:
-
-1. Убедитесь, что в вашей системе установлены [Maven](https://maven.apache.org/) и [Docker Compose](https://docs.docker.com/compose/).
-2. Откройте терминал и перейдите в корневой каталог проекта.
-3. Запустите следующую команду, чтобы собрать приложение с помощью Maven:
-
-```
-mvn clean install
-```
-4. После завершения сборки выполните следующую команду, чтобы запустить приложение с помощью Docker Compose:
-
-```
-docker-compose up
-```
-Это запустит все необходимые службы, включая базу данных MySQL и само приложение.
-Теперь вы можете получить доступ к приложению, открыв веб-браузер и перейдя по адресу http://localhost:8080.
-
 # Testing
 Unit and integration tests have been included using JUnit and testcontainers to raise the test base in Docker. `Docker must be running` to pass integration tests
 
----
-Модульные и интеграционные тесты сделаны с использованием JUnit и Testcontainer's для поднятия тестовой базы в Docker. Для прохождения интеграционных тестов `обязательно должен быть запущен Docker`
 # Additionally
-This project is a test task for IT-BOOTCAMP Backend Java Developer.
-
----
-Этот проект является тестовым заданием для IT-BOOTCAMP Backend Java Developer.
-
-:white_check_mark: Многомодульность three maven module.    
-:white_check_mark: Система контроля версий - Git.    
-:white_check_mark: Технологии: java11 , log4j2, Spring Boot 2, MySQL 8.    
-:white_check_mark: Использование Docker и Docker Compose для контейнеризации проекта.    
-:white_check_mark: Unit и Integration тесты на приложение.  (testcontainers, Junit)    
-:white_check_mark: Liquibase для миграции базы данных.    
-:white_check_mark: Формат: JSON.    
-:white_check_mark: Архитектурный стиль: REST.    
-:white_check_mark: Endpoint для добавление пользователя.    
-:white_check_mark: Endpoint для получения всех пользователей.    
-:white_check_mark: Обработка ошибок.    
-:white_check_mark: Постраничный вывод записей по 10 для получения пользователя.    
+This project is a test task.
