@@ -10,7 +10,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -33,7 +32,6 @@ public class UserController {
     }
 
     @PostMapping
-    @Transactional
     public ResponseEntity<Object> addUser(@Valid @RequestBody UserCreateRequest createRequest) {
         User createdUser = userService.create(createRequest);
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
